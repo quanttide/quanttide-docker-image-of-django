@@ -1,6 +1,6 @@
 # ----- 拉取环境 -----
 # 从仓库拉取带有Python 3.7的Linux 环境
-FROM python:3.7
+FROM python:3.7-buster
 
 # 设置Python环境变量
 # 直接返回Python程序运行结果到Termainal
@@ -22,4 +22,5 @@ RUN apt-get update && apt-get install python3.7-dev default-libmysqlclient-dev -
 # ----- 安装Django默认依赖 -----
 
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
-  && pip install -r requirements.txt
+  && pip install Django==3.0.7 djangorestframework==3.12.2 gunicorn==20.1.0 \
+    django-environ==0.4.5 mysqlclient==2.0.3 django-redis-cache==3.0.0
