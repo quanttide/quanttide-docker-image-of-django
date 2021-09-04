@@ -22,4 +22,4 @@ RUN apt-get update && apt-get install python3-dev default-libmysqlclient-dev -y
 # ----- 安装Django默认依赖 -----
 
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
-  && pip install Django==3.0.7 djangorestframework==3.12.2 gunicorn==20.1.0 django-environ==0.4.5
+  && pip install -r requirements.txt
