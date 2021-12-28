@@ -20,7 +20,7 @@ RUN echo \
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free \
     deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free \
         > /etc/apt/sources.list
-RUN apt-get update && apt-get install python3.9-dev default-libmysqlclient-dev -y
+RUN apt-get update && apt-get install python-dev default-libmysqlclient-dev -y
 
 
 # ----- 安装Django默认依赖 -----
