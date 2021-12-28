@@ -3,8 +3,9 @@
 
 # ----- 拉取环境 -----
 
-# 从仓库拉取带有Python 3.9.9的Linux 环境
-FROM python:3.9.9-slim-buster
+# 从仓库拉取带有Python 3.9的Debain 11环境
+# bugfix: https://unix.stackexchange.com/questions/658324/apt-refuses-to-install-a-newer-version-of-a-package/658327
+FROM python:3.9-slim-bullseye
 
 # 设置Python环境变量
 # 直接返回Python程序运行结果到Termainal
@@ -14,12 +15,6 @@ ENV PYTHONUNBUFFERED 1
 
 # ----- 安装MySQL库的依赖 -----
 
-RUN echo \
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free \
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free \
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free \
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free \
-        > /etc/apt/sources.list
 RUN apt-get update && apt-get install python3.9-dev default-libmysqlclient-dev build-essential -y
 
 
