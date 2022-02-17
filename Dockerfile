@@ -21,5 +21,5 @@ RUN apt-get update && apt-get install python3.9-dev default-libmysqlclient-dev b
 # ----- 安装Django默认依赖 -----
 
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
-  && pip install Django==3.2.10 djangorestframework==3.13.1 django-cors-headers==3.10.1 django-project-version==0.16.0 \
+  && pip install Django==3.2.10 djangorestframework==3.13.1 django-cors-headers==3.10.1 django-project-version==0.16.0 GitPython==3.1.26 \
     gunicorn==20.1.0 mysqlclient==2.1.0
