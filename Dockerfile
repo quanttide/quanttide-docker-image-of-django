@@ -15,7 +15,7 @@ ENV PYTHONUNBUFFERED 1
 
 # ----- 安装MySQL库的依赖 -----
 
-RUN apt-get update && apt-get install python3.9-dev default-libmysqlclient-dev build-essential -y
+RUN apt-get update && apt-get install git python3.9-dev default-libmysqlclient-dev build-essential -y
 
 
 # ----- 安装Django默认依赖 -----
