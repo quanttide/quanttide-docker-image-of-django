@@ -1,5 +1,5 @@
 # Author: 张果
-# Updated Date: 2022-02-17
+# Updated Date: 2022-02-28
 
 # ----- 拉取环境 -----
 
@@ -12,11 +12,20 @@ FROM python:3.9-slim-bullseye
 # 参考：https://stackoverflow.com/questions/59812009/what-is-the-use-of-pythonunbuffered-in-docker-file/59812588
 ENV PYTHONUNBUFFERED 1
 
+# ----- 修改时区 -----
+# 参考：https://cloud.tencent.com/developer/article/1626811
+
+ENV TZ=Asia/Shanghai \
+    DEBIAN_FRONTEND=noninteractive
+
+RUN ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
+    && dpkg-reconfigure --frontend noninteractive tzdata \
+    && rm -rf /var/lib/apt/lists/*
 
 # ----- 安装MySQL库的依赖 -----
 
 RUN apt-get update && apt-get install git python3.9-dev default-libmysqlclient-dev build-essential -y
-
 
 # ----- 安装Django默认依赖 -----
 
