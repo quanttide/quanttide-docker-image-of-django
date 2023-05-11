@@ -28,4 +28,5 @@ jobs:
         with:
           context: .
           push: true
-          image: quanttide/quanttide-docker-image-of-django:${{ steps.git_commit.outputs.short_sha }}
+          tags: |
+            quanttide/quanttide-docker-image-of-django:${{ steps.git_commit.outputs.short_sha }}
